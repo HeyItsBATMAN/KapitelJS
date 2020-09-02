@@ -1,7 +1,16 @@
 {
-  "name": "KapitelJS",
+  "name": "kapiteljs",
   "version": "0.1.0",
   "description": "Add an interactive timeline with chapters to HTML media elements",
+  "homepage": "https://github.com/HeyItsBATMAN/KapitelJS",
+  "bugs": {
+    "url": "https://github.com/HeyItsBATMAN/KapitelJS/issues",
+    "email": "kai.niebes@outlook.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HeyItsBATMAN/KapitelJS.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -17,10 +26,10 @@
     "rxjs": "^6.6.2",
     "slugify": "^1.4.5",
     "sweetalert2": "^9.17.1",
-    "tippy.js": "^6.2.6",
-    "typescript": "^4.0.2"
+    "tippy.js": "^6.2.6"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.0.2"
   }
 }
