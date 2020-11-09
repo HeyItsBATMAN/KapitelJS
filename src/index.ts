@@ -1,8 +1,8 @@
 import {
   Kapitel,
   ChapterProperties,
-  KapitelConstructorOptions,
+  KapitelOptions,
 } from './kapitel';
 
 export default Kapitel;
-export { ChapterProperties, KapitelConstructorOptions };
+export { ChapterProperties, KapitelOptions };

@@ -23,13 +23,11 @@
   "author": "Kai Niebes <kai.niebes@outlook.com> (https://github.com/HeyItsBATMAN)",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "rxjs": "^6.6.2",
-    "slugify": "^1.4.5",
-    "sweetalert2": "^9.17.1",
-    "tippy.js": "^6.2.6"
+    "rxjs": "^6.6.3",
+    "slugify": "^1.4.6"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.5"
   }
 }
