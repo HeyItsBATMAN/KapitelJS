@@ -1,7 +1,8 @@
 import { ReplaySubject, fromEvent } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 
-const kapitelCss = `.kapitel {
+const kapitelCss = `
+.kapitel {
   display: grid;
   grid-template-areas: 'timeline' 'controls' 'button-row';
   grid-auto-columns: 1fr;
@@ -316,9 +317,14 @@ export class Kapitel {
       }
     }
 
-    if (this.media.currentSrc !== '') this.setTotalTime();
-    fromEvent(this.media, 'loadeddata').subscribe(() => this.setTotalTime());
-    fromEvent(this.media, 'progress').subscribe(() => this.setTotalTime());
+    const init = () => {
+      this.setTotalTime();
+      this.updateCurrentChapter();
+    };
+
+    if (this.media.currentSrc !== '') init();
+    fromEvent(this.media, 'loadeddata').subscribe(() => init());
+    fromEvent(this.media, 'progress').subscribe(() => init());
 
     fromEvent(this.media, 'timeupdate')
       .pipe(throttleTime(250))
