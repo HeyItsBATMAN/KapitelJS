@@ -1,7 +1,3 @@
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/dist/backdrop.css';
-import 'tippy.js/animations/shift-away.css';
-import 'sweetalert2/src/sweetalert2.scss';
 interface CreateChapter {
     no?: number;
     title: string;
@@ -18,30 +14,50 @@ declare class Chapter implements ChapterProperties {
     timeInSeconds: number;
     constructor(chapter: CreateChapter);
 }
-export interface KapitelConstructorOptions {
-    createChapterButton?: boolean;
-    exportChaptersButton?: boolean;
-    maxHeight?: string;
-    height?: string;
+export interface KapitelOptions {
+    createChapterButton: boolean;
+    exportChaptersButton: boolean;
+    showControls: boolean;
+    style: Partial<CSSStyleDeclaration>;
 }
 export declare class Kapitel {
-    private __media;
-    private __timeline;
-    private __totalDuration;
-    private __currentChapter;
-    private __chapters;
-    private __chaptersSubject;
+    private media;
+    private container;
+    private tooltip;
+    private dialog;
+    private playtime;
+    private timeline;
+    private totalDuration;
+    private firstDraw;
+    private currentChapter;
+    private chapters;
+    private chaptersSubject;
     $chapters: import("rxjs").Observable<Chapter[]>;
-    private __currentChapterSubject;
+    private currentChapterSubject;
     $currentChapter: import("rxjs").Observable<Chapter>;
-    private __htmlSubject;
+    private htmlSubject;
     $html: import("rxjs").Observable<HTMLElement>;
-    private __options;
-    constructor(videoElement: HTMLMediaElement, container: HTMLElement, options?: KapitelConstructorOptions);
+    private options;
+    constructor(videoElement: HTMLMediaElement, container: HTMLElement, options?: Partial<KapitelOptions>);
+    private updateTooltip;
+    private createStyleSheet;
     private updateChapters;
     private drawButtons;
     private drawTimeline;
+    get playtimePercentage(): string;
     private drawPlaytime;
+    private drawControls;
+    get currentChapterIndex(): number;
+    get nextChapterIndex(): number;
+    get prevChapterIndex(): number;
+    get hasNextChapter(): boolean;
+    get hasPrevChapter(): boolean;
+    get nextChapter(): Chapter | undefined;
+    get prevChapter(): Chapter | undefined;
+    private playNextChapter;
+    private playPrevChapter;
+    private skip5Seconds;
+    private rewind5Seconds;
     private setTotalTime;
     getCurrentVideoTime(): number;
     getVideoDuration(): number;
